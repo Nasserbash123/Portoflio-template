@@ -1,0 +1,524 @@
+// var
+$mainColor:#2702f4;
+$secondryColor:white;
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+$font: 'Cairo', sans-serif;
+//
+
+  @keyframes slideFade-top {
+    0% {
+                 opacity: 0;
+                visibility: hidden;
+              transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+              transform: translateY(0);
+    }
+  }
+  @keyframes slide {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+              transform: translatex(200px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+              transform: translatex(0);
+    }
+   
+  }
+  @keyframes loader {
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(5px);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    75%{
+        transform: translateY(15px);
+    }
+    100%{
+        transform: translateY(20px);
+    }
+}
+  .active-fade{
+    animation-name: slideFade-top;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+  .active-slide{
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+//
+*,body,html{
+    padding: 0;
+    margin: 0;
+    font-family: $font;
+}
+
+.header{
+    background-image: url("../image/pexels-sebastiaan-stam-1480690.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 650px;
+    position: relative;
+    .toggle-menu{
+        font-size: 1.4em;
+    }
+    @media only screen and (min-width: 768px) {
+        nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        }
+      }
+    nav{
+        z-index: 15;
+        background-color: transparent;
+       
+        .navbar-brand{
+           img{
+            width: 200px;
+           }
+        }
+        ul .nav-link{
+            color: $secondryColor !important;
+            font-size: 1.3em;
+            font-weight: 500;
+            &:hover{
+                color: $mainColor !important;
+            }
+        }
+    }
+   
+    .mobile-menu{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.863);
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        text-align: center;
+        margin-left: 1500px;
+        transition: all 0.5s ease-out;
+        #close{
+            color: white;
+            font-size: 1.7em;
+            position: absolute;
+            top: 3%;
+            right: 10%;
+            cursor: pointer;
+        }
+        ul{
+            position: absolute;
+            top: 10%;
+            left: 0;
+            right: 0;
+            margin-left: 40%;
+            margin-right: 40%;
+           
+            .nav-link{
+               
+            font-size: 1.3em;
+            color: white;
+            &:hover{
+                color: $mainColor !important;
+            }
+        }
+        }
+    }
+    .active{
+        margin-left: 0;
+    }
+    .header-content{
+        animation-name: slideFade-top;
+        animation-duration: 2s;
+        color: $secondryColor;
+        
+        padding: 15px;
+        position: absolute;
+        top: 35%;
+        left: 15%;
+        margin-bottom: 15px;
+        p{
+            font-size: 1.5em;
+        }
+        button{
+            background: linear-gradient(to right,$mainColor 50%,transparent 50%);
+            border: 2px solid white;
+            color: white;
+            
+            background-position: right bottom;
+            background-size: 200% 100%;
+            transition: all 0.4s ease-in-out;
+            &:hover{
+                background-color: $mainColor;
+                color: $secondryColor;
+                border: 2px solid $mainColor;
+                background-position: left bottom;
+                
+            }
+        }
+    }
+   
+    .contact-sidebar{
+        position: absolute;
+        left: 0;
+        top: 35%;
+        .title{
+            opacity: 0;
+            visibility: hidden;
+        }
+        .header-icon{
+            width: 60px;
+            transition: all 0.1s ease-in;
+            background-color: $mainColor;
+             margin: 1px;
+             padding: 15px;
+             display: block;       
+             font-size: 1.5em;
+             cursor: pointer;
+             color: $secondryColor;
+             &:hover{
+                width: 80px;
+                padding-left: 25px;
+             }
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .header-content {
+        top: 30%;
+        left: 20%;
+    }
+    .header .contact-sidebar .header-icon{
+            width: 30px;
+            padding: 15px 15px 15px 8px;       
+            font-size: 1em;
+            &:hover{
+                width: 50px;
+               
+             }
+           
+    }
+  }
+.about-us{
+    background-color: $mainColor;
+    padding: 20px;
+    text-align: center;
+    .title{
+        color: white;
+        
+    }
+    .counter{
+        .counter-content{
+       color: white;
+       border-right: 2px solid rgba(221, 219, 219, 0.219);
+       padding: 75px;
+       &:last-child{
+        border-right:none;
+       }
+       .number{
+        font-size: 3.5em;
+       }
+    }
+    }
+}
+@media only screen and (max-width: 600px) {
+        .counter-content{
+       border-right: none;
+       border-bottom: 2px solid rgba(221, 219, 219, 0.219);
+       padding: 75px;
+       &:last-child{
+        border-bottom:none;
+       }
+}
+}
+
+
+@media only screen and (max-width: 600px) {
+    .counter-content {
+      border-right: none;
+    }
+  }
+
+.our-work{
+    .our-work-desc{
+        text-align: center;
+        padding: 15px;
+        opacity: 0;
+        visibility: hidden;
+        h1{
+            color: $mainColor;
+        }
+    }
+    .works{
+            .work{
+                opacity: 0;
+        visibility: hidden;
+                   i{
+                    font-size: 3em;
+                       margin: 4px; 
+                       color: $mainColor;
+                   }
+                 .work-desc{
+                    margin: 10px;
+                    p{
+                        font-weight:100;
+                    }
+                  }
+            }
+    }
+   
+}
+.gallery{
+    background: #2702f4;
+background: linear-gradient(180deg, #2702f4 50%, rgba(255,255,255,1) 100%);
+.title{
+    opacity: 0;
+    visibility: hidden;
+}
+    .gallery-img{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(15, 5vw);
+        grid-gap: 15px;
+       
+        
+        .gallery-item{
+            box-shadow: rgba(184, 182, 182, 0.568) 1.95px 1.95px 2.6px  1px  ;
+            opacity: 0;
+        visibility: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+             }
+             
+             
+        }
+        .gallery__item--1{
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 1;
+            grid-row-end: 5;
+            
+         }
+         .gallery__item--2{
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 5;
+            grid-row-end: 10;
+            
+         }
+         .gallery__item--3{
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 10;
+            grid-row-end: 16;
+            
+         }
+         .gallery__item--4{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 7;
+            
+         }
+         .gallery__item--5{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 7;
+            grid-row-end: 16;
+            
+         }
+    }
+    @media only screen and (max-width: 574px) {
+        .gallery-img{
+            display: block;
+            
+        }
+    }
+}
+
+
+.contact{
+    padding: 15px;
+    background-image:url("/assest/image/pexels-instawalli-176851.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    .title{
+        opacity: 0;
+        visibility: hidden;
+    }
+    .contact-content{
+        box-shadow: rgba(156, 156, 156, 0.15) 1.95px 1.95px 1.95px ;
+        opacity: 0;
+        visibility: hidden;
+        .contact-info{
+            width: 50%;
+            padding: 35px;
+            background-color: #0e0f16c7;
+        }
+        form{
+            width: 50%;
+            padding: 35px;
+            background-color: rgba(0, 0, 0, 0.281);
+            input,textarea{
+                background-color: transparent;
+                margin: 7px;
+               border-radius: none;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                color: white;
+                font-size: 12px;
+                padding: 10px;
+                &:focus{
+                   
+                    box-shadow: none;
+                }
+            }
+            button{
+                margin: 15px;
+                color: white;
+                background: linear-gradient(to left,$mainColor 50%,transparent 50%);
+                border: 2px solid $mainColor;
+                background-position: right bottom;
+                background-size: 200% 100%;
+                transition: all 0.4s ease-in-out;
+                &:hover{
+                    color: $secondryColor;
+                    border: 2px solid $mainColor;
+                    background-position: left bottom;
+                    
+                }
+            }
+            
+        }
+    }
+    .contact-info{
+        text-align: center;
+        h5{
+           
+            color: $mainColor;
+        }
+        .contact-icon{
+            color: $mainColor;
+        }
+        .socialmedia{
+           margin-top: 50px;
+            padding: 15px;
+            i{
+                margin: 6px;
+                &:hover{
+                    color: $mainColor;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+}
+@media only screen and (max-width: 574px) {
+    .contact{
+    .contact-content{
+    .contact-info{
+        width: 100%;
+        
+    }
+    form{
+        width: 100%;
+       
+    }}}
+}
+footer{
+    padding: 25px;
+    background-color: #0d0d0f;
+    color: white;
+    .container{
+        opacity: 0;
+        visibility: hidden;
+    }
+    img{
+        width: 100%;
+    }
+    .footer-left{
+    form{
+        label{
+            color: #2702f4;
+        }
+        input{
+            background-color: transparent;
+            margin: 7px;
+           border-radius: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+           color: white;
+            font-size: 12px;
+            padding: 10px;
+            &:focus{
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+        button{
+            background: linear-gradient(to left,$mainColor 50%,transparent 50%);
+            border: 2px solid $mainColor;
+            color: white;
+            background-position: right bottom;
+            background-size: 200% 100%;
+            transition: all 0.4s ease-in-out;
+            &:hover{
+                color: $secondryColor;
+                border: 2px solid $mainColor;
+                background-position: left bottom;
+                
+            }
+        }
+    }
+}}
+
+#backtoTop{
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    transition: all 0.3s ease-in;
+    display: none;
+    
+    #icon-top{
+        padding: 10px;
+        padding-left: 13px;
+        width: 40px;
+        height: 40px;
+         border-radius: 50px;    
+        background-color: $mainColor;
+        transition: all 0.3s ease-in;
+        color: white;
+        &:hover{
+            background-color: $secondryColor;
+            color: $mainColor;
+        }
+        i{
+            
+            font-size: 1.3em;
+        }
+    }
+    
+}
